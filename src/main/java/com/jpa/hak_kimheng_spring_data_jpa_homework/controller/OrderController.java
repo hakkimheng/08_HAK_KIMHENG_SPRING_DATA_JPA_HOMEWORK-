@@ -42,8 +42,8 @@ public class OrderController extends BaseResponseApi {
             description = "Retrieves a paginated list of orders for the specified customer. Supports page/size and sorting by <code><span style='color:purple;'>OrderProperty</span></code> with <code><span style='color:purple;'>Sort.Direction</span></code>" )
     public ResponseEntity<ApiResponse<ListResponse<OrderResponse>>> getAllOrders(
                                                                     @PathVariable("customer-id") @Positive Long customerId,
-                                                                    @RequestParam @Positive Integer page,
-                                                                    @RequestParam @Positive Integer size,
+                                                                    @RequestParam(defaultValue = "1") @Positive Integer page,
+                                                                    @RequestParam(defaultValue = "10") @Positive Integer size,
                                                                     @RequestParam OrderProperty  orderProperty,
                                                                     @RequestParam Sort.Direction direction                                                                  ) {
         return toResponse(orderService.getAllOrders(page , size , orderProperty , direction, customerId),
