@@ -84,13 +84,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderResponse getOrderById(Long id) {
         return orderRepository.findById(id).orElseThrow(
-                () -> new NotFoundException("Order id " + id + "Not Found!")).toOrderResponse();
+                () -> new NotFoundException("Order id " + id + " Not Found!")).toOrderResponse();
     }
 
     @Override
     public OrderResponse updateStatusOrder(OrderStatus orderStatus, Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(
-                () -> new NotFoundException("Order id " + orderId + "Not Found!")
+                () -> new NotFoundException("Order id " + orderId + " Not Found!")
         );
         order.setStatus(orderStatus);
         return orderRepository.save(order).toOrderResponse();
@@ -99,7 +99,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void deleteOrderById(Long orderId) {
         orderRepository.findById(orderId).orElseThrow(
-                () -> new NotFoundException("Order id " + orderId + "Not Found!")
+                () -> new NotFoundException("Order id " + orderId + " Not Found!")
         );
         orderRepository.deleteById(orderId);
     }

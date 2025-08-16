@@ -9,6 +9,7 @@ import com.jpa.hak_kimheng_spring_data_jpa_homework.model.dto.response.ProductRe
 import com.jpa.hak_kimheng_spring_data_jpa_homework.model.entity.Product;
 import com.jpa.hak_kimheng_spring_data_jpa_homework.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/v1/product")
 @RequiredArgsConstructor
+@Tag(name = "Product")
 public class ProductController extends BaseResponseApi {
 
     private final ProductService productService;

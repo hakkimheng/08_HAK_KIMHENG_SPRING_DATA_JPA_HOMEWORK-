@@ -10,6 +10,7 @@ import com.jpa.hak_kimheng_spring_data_jpa_homework.model.dto.response.OrderResp
 import com.jpa.hak_kimheng_spring_data_jpa_homework.service.OrderService;
 import com.jpa.hak_kimheng_spring_data_jpa_homework.utils.Helper;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -23,9 +24,10 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/order")
 @RequiredArgsConstructor
+@Tag(name = "Order")
 public class OrderController extends BaseResponseApi {
-    final OrderService orderService;
-    final Helper helper;
+
+    private final OrderService orderService;
 
     @PostMapping("/{customer-id}")
     @Operation(summary = "Create order(s) for a customer",

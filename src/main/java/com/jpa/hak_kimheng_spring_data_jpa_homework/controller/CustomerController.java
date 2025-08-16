@@ -8,6 +8,7 @@ import com.jpa.hak_kimheng_spring_data_jpa_homework.model.dto.response.ListRespo
 import com.jpa.hak_kimheng_spring_data_jpa_homework.model.dto.response.CustomerResponse;
 import com.jpa.hak_kimheng_spring_data_jpa_homework.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/v1/customer")
 @RequiredArgsConstructor
+@Tag(name = "Customer")
 public class CustomerController extends BaseResponseApi {
 
     private final CustomerService customerService;
